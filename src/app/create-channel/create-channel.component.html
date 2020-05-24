@@ -1,0 +1,45 @@
+<div class="container1" style="display: flex;">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="createForm" id="login-form" >
+              <div class="user-box">
+                  <input
+                  type="text"
+                  formControlName="username"
+                  name="username"
+                  id="username"
+                  [ngClass]="{ 'is-invalid': invalidUserName() }"
+                  [(ngModel)]="username"
+                  autocomplete="off"
+                  required
+                />
+                <p *ngIf="invalidUserName()" id="username_error" class="invalid-feedback">Username is Required.</p>
+                <label for="username">Username</label>
+              </div>
+              <div class="user-box">
+                  <input
+                  type="text"
+                  name="groupId"
+                  formControlName="groupId"
+                  id="groupId"
+                  [ngClass]="{ 'is-invalid': invalidGroupId() }"
+                  [(ngModel)]="groupId"
+                  autocomplete="off"
+                  required
+                />
+                <p *ngIf="invalidGroupId()" id="GroupId_error" class="invalid-feedback">GroupId is Required.</p>
+                <label for="groupId">Group Id</label>
+              </div>
+              <a (click)="onSubmit()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Submit
+                </a>
+              
+            </form>
+          </div>
+        </div>
+      
+      </div>
