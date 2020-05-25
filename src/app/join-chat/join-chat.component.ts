@@ -30,9 +30,10 @@ export class JoinChatComponent implements OnInit {
     const username=this.username.toString();
     try {
       const response = await axios.post('https://calm-citadel-71012.herokuapp.com/join', {
-       "username": username,
-       "groupId":this.groupId
-      });
+       username: username,
+       groupId:this.groupId
+      }
+       );  
       const { token } = response.data;
       const apiKey = response.data.api_key;
 

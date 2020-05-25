@@ -1,12 +1,12 @@
 
 <!-- Toolbar -->
- <div class="content" role="main">
+ <div class="content" role="main" style="overflow:hidden">
 
-  <div *ngIf="channel" class="container">
+  <div *ngIf="channel" >
     <h3 class=" text-center" style="color: beige">Stream Messaging</h3>
     <div class="messaging">
       <div class="inbox_msg">
-        <div class="inbox_people">
+        <!-- <div class="inbox_people">
           <div class="headind_srch">
             <div class="channel_heading">
               <h4>Channels</h4>
@@ -21,18 +21,18 @@
                       {{ channel.data.name }}
                     </h5>
                     <p>
-                      <!-- {{
+                      {{
                         channel.state.messages[
                           channel.state.messages.length - 1
-                        ].text -->
-                      <!-- }} -->
+                        ].text 
+                       }} 
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="mesgs">
           <div class="msg_history">
             <li class="message" *ngFor="let message of messages">
@@ -46,11 +46,12 @@
               <ng-template #incoming_msg>
                 <div class="incoming_msg">
                   <div class="incoming_msg_img">
-                    <p style="color: beige">{{ message.user.id}}</p>
+                    <p style="color: beige;font-size: 15px;
+                    letter-spacing: 1px;">{{ message.user.id}}</p>
                   </div>
                   <div class="received_msg" style="padding-top: 20px;
                   padding-left: 0px;
-                  margin-left: -14px;">
+                  margin-left: -23px;">
                     <div class="received_withd_msg">
                       <p>{{ message.text }}</p>
                     </div>
