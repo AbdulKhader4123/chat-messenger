@@ -229,6 +229,7 @@ img {
 .message-item{
 word-break: break-word;
 max-width: 75%;
+min-width: 30%;
 position: relative
 }
 .self{

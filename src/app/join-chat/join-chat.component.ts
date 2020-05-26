@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StreamChat, ChannelData, Message, User } from 'stream-chat';
 import axios from 'axios';
 import { ActivatedRoute } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-join-chat',
@@ -19,7 +20,7 @@ export class JoinChatComponent implements OnInit {
   currentUser: User;
   channel: ChannelData;
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute,private ngxService: NgxUiLoaderService) { }
 
   ngOnInit() {
    this.username=localStorage.getItem("chatUsername");
@@ -27,6 +28,8 @@ export class JoinChatComponent implements OnInit {
    this.joinChat();
   }
   async joinChat() {
+    this.ngxService.startLoader("master",'do-background-things1')
+    this.ngxService.startBackground('do-background-things');
     const username=this.username.toString();
     try {
       const response = await axios.post('https://calm-citadel-71012.herokuapp.com/join', {
@@ -46,10 +49,8 @@ export class JoinChatComponent implements OnInit {
         },
         token
       );
-console.log( this.chatClient);
 
       const channel = this.chatClient.channel('team', this.groupId);
-console.log(channel);
 
       await channel.watch();
       this.channel = channel;
@@ -57,7 +58,6 @@ console.log(channel);
       this.channel.on('message.new', event => {
         this.messages = [...this.messages, event.message];
       });
-console.log(this.currentUser.me.id)
       const filter = {
         type: 'team',
         members: { $in: [`${this.currentUser.me.id}`] },
@@ -68,11 +68,16 @@ console.log(this.currentUser.me.id)
         watch: true,
         state: true,
       });
-      console.log(this.channelList)
+    document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
+
     } catch (err) {
       console.log(err);
       return;
     }
+    this.ngxService.stopBackground('do-background-things');
+    this.ngxService.stopLoader("master",'do-background-things1')
+
+
   }
 
   async sendMessage() {
@@ -84,6 +89,7 @@ console.log(this.currentUser.me.id)
         text: this.newMessage,
       });
       this.newMessage = '';
+      document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
     } catch (err) {
       console.log(err);
     }
