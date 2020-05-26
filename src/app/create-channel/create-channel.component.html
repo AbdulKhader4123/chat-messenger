@@ -6,10 +6,8 @@
                   <input
                   type="text"
                   formControlName="username"
-                  name="username"
                   id="username"
                   [ngClass]="{ 'is-invalid': invalidUserName() }"
-                  [(ngModel)]="username"
                   autocomplete="off"
                   required
                 />
@@ -19,11 +17,9 @@
               <div class="user-box">
                   <input
                   type="text"
-                  name="groupId"
                   formControlName="groupId"
                   id="groupId"
                   [ngClass]="{ 'is-invalid': invalidGroupId() }"
-                  [(ngModel)]="groupId"
                   autocomplete="off"
                   required
                 />

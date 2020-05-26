@@ -6,7 +6,8 @@ import { JoinChatComponent } from './join-chat/join-chat.component';
 
 const routes: Routes = [
   { path: 'create', component: CreateChannelComponent },
-  { path: 'join', component: JoinChatComponent }
+  { path: 'join', component: JoinChatComponent },
+  { path: '', component: CreateChannelComponent },
 ];
 
 @NgModule({

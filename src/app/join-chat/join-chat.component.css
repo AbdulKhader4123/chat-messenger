@@ -223,4 +223,14 @@ img {
 
 .message {
 	list-style-type: none;
+
+}
+
+.message-item{
+word-break: break-word;
+max-width: 75%;
+position: relative
+}
+.self{
+	background:	#dcf8c6!important
 }

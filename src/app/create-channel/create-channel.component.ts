@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
 })
 export class CreateChannelComponent implements OnInit {
 
-  username = "";
-  groupId="";
   submitted=false;
   createForm :FormGroup;
   constructor(private formbuilder :FormBuilder,private router:Router) { }
@@ -38,7 +36,11 @@ this.createForm=this.formbuilder.group({
   	}
   	else
   	{
-      this.router.navigate(['/join'],{ queryParams: { username: this.username,id:this.groupId} });
+      localStorage.setItem("channelID",this.createForm.controls.groupId.value)
+      localStorage.setItem("chatUsername",this.createForm.controls.username.value)
+      this.router.navigate(['/join']);
     }
+
+
   }
 }

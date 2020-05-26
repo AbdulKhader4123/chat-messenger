@@ -34,8 +34,8 @@
           </div>
         </div> -->
         <div class="mesgs">
-          <div class="msg_history">
-            <li class="message" *ngFor="let message of messages">
+          <div class="msg_history d-flex flex-column">
+            <ng-container class="message" *ngFor="let message of messages">
               <div
                 *ngIf="
                   message.user.id !== currentUser.me.id;
@@ -45,7 +45,7 @@
               ></div>
               <ng-template #incoming_msg>
                 <div class="incoming_msg">
-                  <div class="incoming_msg_img">
+                  <!-- <div class="incoming_msg_img">
                     <p style="color: beige;font-size: 15px;
                     letter-spacing: 1px;">{{ message.user.id}}</p>
                   </div>
@@ -55,17 +55,30 @@
                     <div class="received_withd_msg">
                       <p>{{ message.text }}</p>
                     </div>
-                  </div>
+                  </div> -->
+                  <div class="align-self-start  p-1 my-1 rounded bg-white shadow-sm message-item">
+                      <div class="small font-weight-bold text-primary">
+                          {{ message.user.id}}
+                        </div>
+                      <div class="d-flex flex-row">
+                        <div class="body m-1 mr-2">{{message.text}}</div>
+                      </div>
+                    </div>
                 </div>
               </ng-template>
               <ng-template #outgoing_msg>
-                <div class="outgoing_msg">
+                  <div class="align-self-end self p-1 my-1  rounded bg-white shadow-sm message-item">
+                      <div class="d-flex flex-row">
+                        <div class="body m-1 mr-2">{{message.text}}</div>
+                      </div>
+                    </div>
+                <!-- <div class="outgoing_msg">
                   <div class="sent_msg">
                     <p>{{ message.text }}</p>
                   </div>
-                </div>
+                </div> -->
               </ng-template>
-            </li>
+            </ng-container>
           </div>
           <div class="type_msg">
             <form class="input_msg_write" (ngSubmit)="sendMessage()">

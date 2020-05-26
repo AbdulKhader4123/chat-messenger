@@ -22,8 +22,8 @@ export class JoinChatComponent implements OnInit {
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
-   this.username=this.route.snapshot.queryParamMap.get('username');
-   this.groupId=this.route.snapshot.queryParamMap.get('id');
+   this.username=localStorage.getItem("chatUsername");
+   this.groupId=localStorage.getItem("channelID");
    this.joinChat();
   }
   async joinChat() {

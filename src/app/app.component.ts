@@ -17,7 +17,7 @@ export class AppComponent {
   }
  
   ngOnInit(){
-this.router.navigate(['/create']);
+// this.router.navigate(['/create']);
 }
  
 }
