@@ -2,10 +2,12 @@
 <!-- Toolbar -->
  <div class="content" role="main" style="overflow:hidden">
 
-  <div *ngIf="channel" >
-    <h3 class=" text-center" style="color: beige">Stream Messaging</h3>
-    <div class="messaging">
-      <div class="inbox_msg">
+  <ng-container *ngIf="channel" >
+    <div class="headline">
+    <a class="text-center details" style="float:left" >User : {{username}}</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="text-center details" style="float:right" >Group :  {{groupId}}</a>
+
+   </div>
         <!-- <div class="inbox_people">
           <div class="headind_srch">
             <div class="channel_heading">
@@ -101,7 +103,5 @@
             </form>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+  </ng-container>
 </div>
