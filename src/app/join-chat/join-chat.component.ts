@@ -23,7 +23,6 @@ export class JoinChatComponent implements OnInit {
   constructor(private route:ActivatedRoute,private ngxService: NgxUiLoaderService) { }
 
   ngOnInit() {
-    document.body.requestFullscreen();
     setTimeout(function() { window.scrollTo(0, 1) }, 100);
    this.username=localStorage.getItem("chatUsername");
    this.groupId=localStorage.getItem("channelID");
@@ -85,6 +84,7 @@ export class JoinChatComponent implements OnInit {
 
   }
   focusEvent(){
+    document.body.requestFullscreen();
     document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
 
   }
