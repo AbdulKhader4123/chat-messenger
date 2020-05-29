@@ -95,6 +95,7 @@
                 name="newMessage"
                 [(ngModel)]="newMessage"
                 autocomplete="off"
+                (focus)="focusEvent()"
               />
             
              <button class="msg_send_btn" type="submit">

@@ -75,8 +75,15 @@ export class JoinChatComponent implements OnInit {
       return;
     }
     this.ngxService.stopBackground('do-background-things');
-    this.ngxService.stopLoader("master",'do-background-things1')
+    this.ngxService.stopLoader("master",'do-background-things1');
+    (setTimeout(() => {
+      document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
+        
+      }, 60))
 
+  }
+  focusEvent(){
+    document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
 
   }
   sendMessage1(){
@@ -95,7 +102,10 @@ export class JoinChatComponent implements OnInit {
       await this.channel.sendMessage({
         text: this.newMessage,
       });
+      (setTimeout(() => {
       document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
+        
+      }, 60))
     } catch (err) {
       console.log(err);
     }
