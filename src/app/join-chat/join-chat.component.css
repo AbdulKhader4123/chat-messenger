@@ -201,8 +201,8 @@ img {
 
 .type_msg {
 	border-top: 1px solid #c4c4c4;
-	position: absolute;
-	bottom:0px;
+	position: fixed;
+	 bottom:0px; 
 }
 
 .msg_send_btn {
