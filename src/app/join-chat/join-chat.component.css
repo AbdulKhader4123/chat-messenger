@@ -237,7 +237,12 @@ img {
 		   overflow-y: auto;
 	   }
 		}
-
+		@media screen and (min-height: 630px)  and (max-height: 640px) {
+			.msg_history {
+				height: 90%;
+			   overflow-y: auto;
+		   }
+			}
 .message {
 	list-style-type: none;
 

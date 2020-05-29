@@ -79,16 +79,22 @@ export class JoinChatComponent implements OnInit {
 
 
   }
-
-  async sendMessage() {
+  sendMessage1(){
     if (this.newMessage.trim() === '') {
       return;
     }
+    this.sendMessage()
+    this.newMessage = '';
+    document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
+
+  }
+
+  async sendMessage() {
+  
     try {
       await this.channel.sendMessage({
         text: this.newMessage,
       });
-      this.newMessage = '';
       document.getElementById("messagebox").scrollTo(0, document.getElementById("messagebox").scrollHeight)
     } catch (err) {
       console.log(err);
